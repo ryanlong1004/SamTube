@@ -1,13 +1,40 @@
 <script>
+	import { tick } from 'svelte';
 	import Thumbnail from './Thumbnail.svelte';
 	let name = 'Page';
 
+	let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	let months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	];
+
 	let videos = [
+		{ title: 'Storybots', text: 'Big Brown Boogieing Bear', id: '3kiKmiimZMM' },
 		{ title: 'Storybots', text: 'Walk Like A Camel', id: 'uan8qs0gRjI' },
 		{ title: 'Storybots', text: 'Dance With the Elephants', id: 'MLnfCNeDZEw' },
 		{ title: 'Storybots', text: 'Wheels on the Bus', id: 'JZCqZa47uXk' },
 		{ title: 'Storybots', text: "If You're Happy and You Know It", id: 'gF9FZlv3TKc' }
 	];
+
+	function getDate() {
+		let today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = months[today.getMonth()];
+		var yyyy = today.getFullYear();
+
+		return `${days[today.getDay()]} ${mm} ${dd}, ${yyyy}`;
+	}
 </script>
 
 <div>
@@ -38,6 +65,9 @@
 					>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+							<li class="nav-item">
+								<div class="nav-link" style="color:white; font-weight: bold">{getDate()}</div>
+							</li>
 							<li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
 							<li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
 							<li class="nav-item dropdown">
@@ -79,84 +109,53 @@
 			</section>
 		</div>
 	</div>
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
-	<!-- Bootstrap core JS-->
 	<script>
-		// 2. This code loads the IFrame Player API code asynchronously.
-		var tag = document.createElement('script');
+		window.addEventListener('DOMContentLoaded', () => {
+			// 2. This code loads the IFrame Player API code asynchronously.
+			var tag = document.createElement('script');
 
-		tag.src = 'https://www.youtube.com/iframe_api';
-		var firstScriptTag = document.getElementsByTagName('script')[0];
-		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+			tag.src = 'https://www.youtube.com/iframe_api';
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-		// 3. This function creates an <iframe> (and YouTube player)
-		//    after the API code downloads.
-		var player;
-		function onYouTubeIframeAPIReady() {
-			player = new YT.Player('player', {
-				height: Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 0.9,
-				width: Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
-				videoId: 'MLnfCNeDZEw',
-				playerVars: {
-					playsinline: 1
-				},
-				events: {
-					onReady: onPlayerReady,
-					onStateChange: onPlayerStateChange
-				}
-			});
-		}
+			// 3. This function creates an <iframe> (and YouTube player)
+			//    after the API code downloads.
+			var player;
+			function onYouTubeIframeAPIReady() {
+				player = new YT.Player('player', {
+					height:
+						Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 0.9,
+					width: Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
+					videoId: 'MLnfCNeDZEw',
+					playerVars: {
+						playsinline: 1
+					},
+					events: {
+						onReady: onPlayerReady,
+						onStateChange: onPlayerStateChange
+					}
+				});
+			}
 
-		// 4. The API will call this function when the video player is ready.
-		function onPlayerReady(event) {
-			event.target.playVideo();
-		}
+			// 4. The API will call this function when the video player is ready.
+			function onPlayerReady(event) {
+				event.target.playVideo();
+			}
 
-		// 5. The API calls this function when the player's state changes.
-		//    The function indicates that when playing a video (state=1),
-		//    the player should play for six seconds and then stop.
-		var done = false;
-		function onPlayerStateChange(event) {
-			console.log('Player state change');
-			//if (event.data == YT.PlayerState.PLAYING && !done) {
-			//    setTimeout(stopVideo, 6000);
-			//    done = true;
-			//}
-		}
-		function stopVideo() {
-			player.stopVideo();
-		}
+			// 5. The API calls this function when the player's state changes.
+			//    The function indicates that when playing a video (state=1),
+			//    the player should play for six seconds and then stop.
+			var done = false;
+			function onPlayerStateChange(event) {
+				console.log('Player state change');
+				//if (event.data == YT.PlayerState.PLAYING && !done) {
+				//    setTimeout(stopVideo, 6000);
+				//    done = true;
+				//}
+			}
+			function stopVideo() {
+				player.stopVideo();
+			}
+		});
 	</script>
 </div>
