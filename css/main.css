@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+}
+
+.handwrite {
+    font-family: 'Pangolin',
+        cursive;
+    font-size: 3.2rem !important;
+    color: white;
+}
+
+.card {
+    margin: 1rem;
+}
+
+#big-screen {
+    background-color: black;
+}
