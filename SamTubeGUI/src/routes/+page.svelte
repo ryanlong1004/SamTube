@@ -1,7 +1,32 @@
 <script>
-	import { tick } from 'svelte';
 	import Thumbnail from './Thumbnail.svelte';
-	let name = 'Page';
+	import { onMount } from 'svelte';
+
+	const ytPlayerId = 'youtube-player';
+
+	let player;
+
+	let currentId = '3kiKmiimZMM';
+
+	onMount(() => {
+		function load() {
+			player = new YT.Player(ytPlayerId, {
+				height: Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 0.9,
+				width: Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
+				videoId: currentId,
+				playerVars: {
+					playsinline: 1,
+					autoplay: 1
+				}
+			});
+		}
+
+		if (window.YT) {
+			load();
+		} else {
+			window.onYouTubeIframeAPIReady = load;
+		}
+	});
 
 	let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	let months = [
@@ -24,7 +49,9 @@
 		{ title: 'Storybots', text: 'Walk Like A Camel', id: 'uan8qs0gRjI' },
 		{ title: 'Storybots', text: 'Dance With the Elephants', id: 'MLnfCNeDZEw' },
 		{ title: 'Storybots', text: 'Wheels on the Bus', id: 'JZCqZa47uXk' },
-		{ title: 'Storybots', text: "If You're Happy and You Know It", id: 'gF9FZlv3TKc' }
+		{ title: 'Storybots', text: "If You're Happy and You Know It", id: 'gF9FZlv3TKc' },
+		{ title: 'Storybots', text: 'Tiger In The Jungle', id: 'TCgnHNNPCkA' },
+		{ title: 'Storybots', text: 'Row Row Row Your Boat', id: 'JZCqZa47uXk' }
 	];
 
 	function getDate() {
@@ -35,8 +62,29 @@
 
 		return `${days[today.getDay()]} ${mm} ${dd}, ${yyyy}`;
 	}
+
+	async function getWeather() {
+		const res = await fetch('https://httpbin.org/post', {
+			method: 'POST',
+			body: JSON.stringify({
+				foo,
+				bar
+			})
+		});
+
+		const json = await res.json();
+		result = JSON.stringify(json);
+	}
+
+	function handleUpdate(event) {
+		currentId = event.detail.videoId;
+		player.loadVideoById(currentId);
+	}
 </script>
 
+<svelte:head>
+	<script src="https://www.youtube.com/iframe_api"></script>
+</svelte:head>
 <div>
 	<div class="d-flex" id="wrapper">
 		<!-- Sidebar-->
@@ -44,7 +92,7 @@
 			<div class="sidebar-heading border-bottom bg-dark handwrite">SamTube</div>
 			<div id="scroll-select" class="list-group list-group-flush">
 				{#each videos as { title, text, id }, i}
-					<Thumbnail {title} {text} videoId={id} />
+					<Thumbnail on:updated={handleUpdate} {title} {text} videoId={id} />
 				{/each}
 			</div>
 		</div>
@@ -92,70 +140,14 @@
 				</div>
 			</nav>
 			<!-- Page content-->
+
 			<section>
 				<div id="big-screen" class="container-fluid">
 					<div class="row">
-						<div id="player">
-							<!-- <div class="col-lg-6">
-                                        <h1 class="mt-5">The Big Picture</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt voluptates rerum eveniet
-                                            sapiente repellat esse, doloremque quod recusandae deleniti nostrum assumenda vel beatae sed
-                                            aut
-                                            modi nesciunt porro quisquam voluptatem.</p>
-                                    </div> -->
-						</div>
+						<div id={ytPlayerId} />
 					</div>
 				</div>
 			</section>
 		</div>
 	</div>
-	<script>
-		window.addEventListener('DOMContentLoaded', () => {
-			// 2. This code loads the IFrame Player API code asynchronously.
-			var tag = document.createElement('script');
-
-			tag.src = 'https://www.youtube.com/iframe_api';
-			var firstScriptTag = document.getElementsByTagName('script')[0];
-			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-			// 3. This function creates an <iframe> (and YouTube player)
-			//    after the API code downloads.
-			var player;
-			function onYouTubeIframeAPIReady() {
-				player = new YT.Player('player', {
-					height:
-						Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 0.9,
-					width: Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
-					videoId: 'MLnfCNeDZEw',
-					playerVars: {
-						playsinline: 1
-					},
-					events: {
-						onReady: onPlayerReady,
-						onStateChange: onPlayerStateChange
-					}
-				});
-			}
-
-			// 4. The API will call this function when the video player is ready.
-			function onPlayerReady(event) {
-				event.target.playVideo();
-			}
-
-			// 5. The API calls this function when the player's state changes.
-			//    The function indicates that when playing a video (state=1),
-			//    the player should play for six seconds and then stop.
-			var done = false;
-			function onPlayerStateChange(event) {
-				console.log('Player state change');
-				//if (event.data == YT.PlayerState.PLAYING && !done) {
-				//    setTimeout(stopVideo, 6000);
-				//    done = true;
-				//}
-			}
-			function stopVideo() {
-				player.stopVideo();
-			}
-		});
-	</script>
 </div>
