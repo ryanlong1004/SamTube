@@ -23,11 +23,18 @@ body {
 }
 
 #scroll-select {
-    background-image: url("../assets/img/pbs_kids.png");
+    background-image: url("../img/pbs_kids.png");
     background-size: contain;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .85);
+    width: 95%;
     position: fixed;
     overflow-y: scroll;
     top: 110px;
     bottom: 0;
+}
+
+#main-scroll-logo {
+    width: 15rem;
+    background-image: url("../img/2.png");
+    background-size: contain;
 }

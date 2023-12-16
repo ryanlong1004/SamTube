@@ -20,6 +20,7 @@
 				}
 			});
 		}
+		getWeather();
 
 		if (window.YT) {
 			load();
@@ -64,16 +65,16 @@
 	}
 
 	async function getWeather() {
-		const res = await fetch('https://httpbin.org/post', {
-			method: 'POST',
-			body: JSON.stringify({
-				foo,
-				bar
-			})
-		});
+		const res = await fetch(
+			'https://api.openweathermap.org/data/2.5/weather?lat=41.31&lon=-75.32&appid=2aa8072e7d3d58436f077a22b78f47c4',
+			{
+				method: 'GET'
+			}
+		);
 
 		const json = await res.json();
-		result = JSON.stringify(json);
+		let result = JSON.stringify(json);
+		console.log(result);
 	}
 
 	function handleUpdate(event) {
@@ -89,7 +90,9 @@
 	<div class="d-flex" id="wrapper">
 		<!-- Sidebar-->
 		<div class="border-end bg-black" id="sidebar-wrapper">
-			<div class="sidebar-heading border-bottom bg-dark handwrite">SamTube</div>
+			<div id="main-scroll-logo" class="sidebar-heading">
+				<img src="../img/2.png" />
+			</div>
 			<div id="scroll-select" class="list-group list-group-flush">
 				{#each videos as { title, text, id }, i}
 					<Thumbnail on:updated={handleUpdate} {title} {text} videoId={id} />
