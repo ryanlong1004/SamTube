@@ -34,7 +34,6 @@ body {
 }
 
 #main-scroll-logo {
-    width: 15rem;
-    background-image: url("../img/2.png");
-    background-size: contain;
+    height: 400px;
+    width: 240px;
 }

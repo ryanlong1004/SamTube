@@ -1,9 +1,9 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 
 	export let videoId;
-	export let text;
-	export let title;
+	let title = 'loading...';
+	let text = 'loading...';
 
 	const dispatch = createEventDispatcher();
 
@@ -13,6 +13,22 @@
 			videoId: videoId,
 			title: title
 		});
+	}
+
+	onMount(async () => {
+		await getData();
+	});
+
+	async function getData() {
+		const response = await fetch(
+			`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=AIzaSyCVOiu_t3Mt5od2IYHQVuWPZIr_B8akA5s`,
+			{
+				method: 'GET'
+			}
+		);
+		const data = await response.json();
+		title = data['items'][0].snippet.title;
+		text = data['items'][0].snippet.channelTitle;
 	}
 </script>
 

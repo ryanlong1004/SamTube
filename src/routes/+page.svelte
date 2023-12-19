@@ -1,6 +1,9 @@
 <script>
 	import Thumbnail from './Thumbnail.svelte';
 	import { onMount } from 'svelte';
+	import Weather from './Weather.svelte';
+	import { getDate, getWeather, getVideoDetails } from '../lib/gateway';
+	import { VIDEOS } from '../lib/videos';
 
 	const ytPlayerId = 'youtube-player';
 
@@ -21,6 +24,7 @@
 			});
 		}
 		getWeather();
+		getVideoDetails();
 
 		if (window.YT) {
 			load();
@@ -28,54 +32,6 @@
 			window.onYouTubeIframeAPIReady = load;
 		}
 	});
-
-	let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-	let months = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December'
-	];
-
-	let videos = [
-		{ title: 'Storybots', text: 'Big Brown Boogieing Bear', id: '3kiKmiimZMM' },
-		{ title: 'Storybots', text: 'Walk Like A Camel', id: 'uan8qs0gRjI' },
-		{ title: 'Storybots', text: 'Dance With the Elephants', id: 'MLnfCNeDZEw' },
-		{ title: 'Storybots', text: 'Wheels on the Bus', id: 'JZCqZa47uXk' },
-		{ title: 'Storybots', text: "If You're Happy and You Know It", id: 'gF9FZlv3TKc' },
-		{ title: 'Storybots', text: 'Tiger In The Jungle', id: 'TCgnHNNPCkA' },
-		{ title: 'Storybots', text: 'Row Row Row Your Boat', id: 'JZCqZa47uXk' }
-	];
-
-	function getDate() {
-		let today = new Date();
-		var dd = String(today.getDate()).padStart(2, '0');
-		var mm = months[today.getMonth()];
-		var yyyy = today.getFullYear();
-
-		return `${days[today.getDay()]} ${mm} ${dd}, ${yyyy}`;
-	}
-
-	async function getWeather() {
-		const res = await fetch(
-			'https://api.openweathermap.org/data/2.5/weather?lat=41.31&lon=-75.32&appid=2aa8072e7d3d58436f077a22b78f47c4',
-			{
-				method: 'GET'
-			}
-		);
-
-		const json = await res.json();
-		let result = JSON.stringify(json);
-		console.log(result);
-	}
 
 	function handleUpdate(event) {
 		currentId = event.detail.videoId;
@@ -91,11 +47,11 @@
 		<!-- Sidebar-->
 		<div class="border-end bg-black" id="sidebar-wrapper">
 			<div id="main-scroll-logo" class="sidebar-heading">
-				<img src="../img/2.png" />
+				<img src="../img/1.png" width="200px" />
 			</div>
 			<div id="scroll-select" class="list-group list-group-flush">
-				{#each videos as { title, text, id }, i}
-					<Thumbnail on:updated={handleUpdate} {title} {text} videoId={id} />
+				{#each VIDEOS as { id }, i}
+					<Thumbnail on:updated={handleUpdate} videoId={id} />
 				{/each}
 			</div>
 		</div>
@@ -119,8 +75,13 @@
 							<li class="nav-item">
 								<div class="nav-link" style="color:white; font-weight: bold">{getDate()}</div>
 							</li>
+							<li>
+								<Weather />
+							</li>
 							<li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+							<li class="nav-item">
+								<a class="nav-link" href="#!"><i class="fa-regular fa-lightbulb"></i></a>
+							</li>
 							<li class="nav-item dropdown">
 								<a
 									class="nav-link dropdown-toggle"
