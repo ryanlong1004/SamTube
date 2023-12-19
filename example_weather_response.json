@@ -1,0 +1,22 @@
+{
+	"coord": { "lon": -75.32, "lat": 41.31 },
+	"weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "01n" }],
+	"base": "stations",
+	"main": {
+		"temp": 277.87,
+		"feels_like": 275.66,
+		"temp_min": 274,
+		"temp_max": 280.31,
+		"pressure": 1032,
+		"humidity": 77
+	},
+	"visibility": 10000,
+	"wind": { "speed": 2.57, "deg": 100 },
+	"clouds": { "all": 0 },
+	"dt": 1702768503,
+	"sys": { "type": 2, "id": 2006061, "country": "US", "sunrise": 1702729241, "sunset": 1702762382 },
+	"timezone": -18000,
+	"id": 5202551,
+	"name": "Mountainhome",
+	"cod": 200
+}

@@ -1,0 +1,96 @@
+{
+	"kind": "youtube#videoListResponse",
+	"etag": "vs21TX66_q2dOF-_QON76H4u7n8",
+	"items": [
+		{
+			"kind": "youtube#video",
+			"etag": "JVuMLXA6Dq-5yDPZINZjH6G5IOY",
+			"id": "3kiKmiimZMM",
+			"snippet": {
+				"publishedAt": "2013-07-15T20:59:11Z",
+				"channelId": "UCAJnyTWJPpKXuwgWQDdNWrQ",
+				"title": "Animal Songs: \"Big Brown Boogieing Bear,\" by StoryBots | Netflix Jr",
+				"description": "What weighs 500 pounds and has the hottest dance moves in the forest? It's Big Brown Boogieing Bear!\n\nThe StoryBots are curious little creatures who live beneath our screens, offering a world of learning and fun for kids. The Emmy Award-winning “Ask the StoryBots” is now streaming on Netflix!\n\nLyrics:\nBig Brown Boogieing Bear\n\nWay out in the wilderness\nAway from the city air\nBopping along with the forest song\nIt's the big brown boogieing bear\n\nWell, the deer they can't stop laughing\nAnd the birds all stop and stare\nIn the meadow green, it's quite a scene\nHe's the big brown boogieing bear\n\nBig brown boogieing bear\nBig brown boogieing bear\nGotta be around 500 pounds\nOf wiggling jiggling hair!\n\nBig brown boogieing bear\nBig brown boogieing bear\nYou'll lose your frown when you're boogieing down\nwith the big brown boogieing bear\n\nAll winter he's been sleeping\nHibernating in his lair\nNow skies are blue, so it's time to groove\nFor that big brown boogieing bear\n\nNext time you're out in nature\nAnd you hear beat from over there\nBeyond the trees you just might see\nThat big brown boogieing bear\n\nHe's a big brown boogieing bear\n\nThat big brown boogieing bear!",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/3kiKmiimZMM/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/3kiKmiimZMM/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/3kiKmiimZMM/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					},
+					"standard": {
+						"url": "https://i.ytimg.com/vi/3kiKmiimZMM/sddefault.jpg",
+						"width": 640,
+						"height": 480
+					},
+					"maxres": {
+						"url": "https://i.ytimg.com/vi/3kiKmiimZMM/maxresdefault.jpg",
+						"width": 1280,
+						"height": 720
+					}
+				},
+				"channelTitle": "Netflix Jr.",
+				"tags": [
+					"bear",
+					"brown bear",
+					"wild animal",
+					"furry",
+					"dance",
+					"boogie",
+					"bop",
+					"forest",
+					"woods",
+					"roar",
+					"Zoo",
+					"Animal",
+					"storybots",
+					"bears",
+					"song",
+					"kids songs",
+					"children's songs",
+					"children's music",
+					"parry gripp",
+					"funny song",
+					"funny animals",
+					"waving bear",
+					"Animal Song",
+					"Animal (Fictional Character)",
+					"Teddy"
+				],
+				"categoryId": "27",
+				"liveBroadcastContent": "none",
+				"localized": {
+					"title": "Animal Songs: \"Big Brown Boogieing Bear,\" by StoryBots | Netflix Jr",
+					"description": "What weighs 500 pounds and has the hottest dance moves in the forest? It's Big Brown Boogieing Bear!\n\nThe StoryBots are curious little creatures who live beneath our screens, offering a world of learning and fun for kids. The Emmy Award-winning “Ask the StoryBots” is now streaming on Netflix!\n\nLyrics:\nBig Brown Boogieing Bear\n\nWay out in the wilderness\nAway from the city air\nBopping along with the forest song\nIt's the big brown boogieing bear\n\nWell, the deer they can't stop laughing\nAnd the birds all stop and stare\nIn the meadow green, it's quite a scene\nHe's the big brown boogieing bear\n\nBig brown boogieing bear\nBig brown boogieing bear\nGotta be around 500 pounds\nOf wiggling jiggling hair!\n\nBig brown boogieing bear\nBig brown boogieing bear\nYou'll lose your frown when you're boogieing down\nwith the big brown boogieing bear\n\nAll winter he's been sleeping\nHibernating in his lair\nNow skies are blue, so it's time to groove\nFor that big brown boogieing bear\n\nNext time you're out in nature\nAnd you hear beat from over there\nBeyond the trees you just might see\nThat big brown boogieing bear\n\nHe's a big brown boogieing bear\n\nThat big brown boogieing bear!"
+				},
+				"defaultAudioLanguage": "en"
+			},
+			"contentDetails": {
+				"duration": "PT1M25S",
+				"dimension": "2d",
+				"definition": "hd",
+				"caption": "false",
+				"licensedContent": true,
+				"regionRestriction": { "blocked": ["IT"] },
+				"contentRating": {},
+				"projection": "rectangular"
+			},
+			"statistics": {
+				"viewCount": "2483574",
+				"likeCount": "2196",
+				"favoriteCount": "0",
+				"commentCount": "0"
+			}
+		}
+	],
+	"pageInfo": { "totalResults": 1, "resultsPerPage": 1 }
+}
