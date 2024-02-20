@@ -1,5 +1,7 @@
 
 export const VIDEOS = [
+    { id: 'JQHoWZxgv-0' },
+    { id: 'FbS39QbaHHY' },
     { id: 'yrvACBl9O_8' },
     { id: 'KRkgkH7mOfw' },
     { id: 'kESsQcUSeHA' },
