@@ -25,8 +25,7 @@
 		const data = await res.json();
 		temp = `${Math.round(data.main.temp * 0.13)} &degF`;
 		console.log(data.weather[0].description.toLowerCase());
-
-		weather_icon = `<img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" height=25px/>`;
+		weather_icon = map_icons[data.weather[0].description.toLowerCase()];
 	}
 </script>
 

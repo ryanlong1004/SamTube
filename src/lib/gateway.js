@@ -1,12 +1,23 @@
 import { DAYS, MONTHS } from './config';
 
 export function getDate() {
-    let today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = MONTHS[today.getMonth()];
-    var yyyy = today.getFullYear();
+    const now = new Date();
+    let dd = String(now.getDate()).padStart(2, '0');
+    let mm = MONTHS[now.getMonth()];
+    let yyyy = now.getFullYear();
 
-    return `${DAYS[today.getDay()]} ${mm} ${dd}, ${yyyy}`;
+    return `${DAYS[now.getDay()]} ${mm} ${dd}, ${yyyy}`;
+}
+
+export function getTime() {
+    const now = new Date();
+
+    let period = now.getHours() > 11 ? 'PM' : 'AM';
+    let hour = String(now.getHours() > 12 ? now.getHours() - 12 : now.getHours()).padStart(2, '0');
+    let minute = String(now.getMinutes()).padStart(2, '0');
+    let second = String(now.getSeconds()).padStart(2, '0');
+
+    return `${hour > 12 ? hour - 12 : hour}:${minute}:${second} ${period}`
 }
 
 export async function getWeather() {

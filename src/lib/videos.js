@@ -8,5 +8,7 @@ export const VIDEOS = [
     { id: 'gF9FZlv3TKc' },
     { id: 'TCgnHNNPCkA' },
     { id: 'JZCqZa47uXk' },
-    { id: "bVtHAk5w2Z8" }
+    { id: "bVtHAk5w2Z8" },
+    { id: "GOOKqqjkg54" },
+    { id: "zimGDKdnHp8" }
 ];
