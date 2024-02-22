@@ -11,24 +11,29 @@
 
 	let currentTime;
 
-	let currentId = '3kiKmiimZMM';
+	let currentId = VIDEOS[0].id;
+
+	console.log(VIDEOS[0].id);
 
 	onMount(() => {
 		function load() {
-			player = new YT.Player(ytPlayerId, {
-				height: Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 0.9,
-				width: Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
-				videoId: currentId,
-				playerVars: {
-					playsinline: 1,
-					autoplay: 1,
-					controls: 1,
-					enablejsapi: 1,
-					loop: 1,
-					cc_load_policy: 1,
-					cc_lang_pref: 'en',
-					fs: 1
-				}
+			window.YT.ready(function () {
+				player = new YT.Player(ytPlayerId, {
+					height:
+						Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) * 0.9,
+					width: Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0),
+					videoId: currentId,
+					playerVars: {
+						playsinline: 1,
+						autoplay: 1,
+						controls: 1,
+						enablejsapi: 1,
+						loop: 1,
+						cc_load_policy: 1,
+						cc_lang_pref: 'en',
+						fs: 1
+					}
+				});
 			});
 		}
 		getWeather();
