@@ -29,7 +29,6 @@ export async function getWeather() {
     );
 
     const json = await res.json();
-    console.log(JSON.stringify(json))
     return JSON.stringify(json);
 }
 
@@ -42,6 +41,5 @@ export async function getVideoDetails(video_id) {
     );
 
     const json = await res.json();
-    console.log(JSON.stringify(json))
     return JSON.stringify(json);
 }
