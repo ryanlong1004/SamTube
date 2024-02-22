@@ -31,7 +31,8 @@
 						loop: 1,
 						cc_load_policy: 1,
 						cc_lang_pref: 'en',
-						fs: 1
+						fs: 1,
+						origin: 'https://sam-tube.netlify.app'
 					}
 				});
 			});

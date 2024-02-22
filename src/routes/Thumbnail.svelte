@@ -33,12 +33,12 @@
 </script>
 
 <div class="card">
+	<!-- svelte-ignore a11y-invalid-attribute -->
 	<a href="#" on:click={play}>
 		<img src="https://i.ytimg.com/vi/{videoId}/maxresdefault.jpg" class="card-img-top" alt="..." />
 		<div class="card-body">
 			<h5 class="card-title">{title}</h5>
 			<p class="card-text">{text}</p>
-			<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
 		</div>
 	</a>
 </div>
