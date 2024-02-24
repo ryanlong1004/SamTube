@@ -15,5 +15,16 @@ export const VIDEOS = [
     { id: 'JZCqZa47uXk' },
     { id: "bVtHAk5w2Z8" },
     { id: "GOOKqqjkg54" },
-    { id: "zimGDKdnHp8" }
+    { id: "zimGDKdnHp8" },
+    { id: "YZF1eiR6nF8" },
+    { id: "KRkgkH7mOfw" },
+    { id: "NBqCHQEmISg" },
+    { id: "27RbnIqjXNE" },
+    { id: "20f8IRDBUMs" },
+    { id: "OZTO_TYKCp0" },
+    { id: "EidRkzsB2H0" },
+    { id: "I7D3bFC3wS8" },
+    { id: "fan2QLYmYBA" },
+    { id: "AsBOoCDXLH4" },
+
 ];
